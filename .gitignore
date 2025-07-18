@@ -7,18 +7,42 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Capacitor
+android/
+ios/
+web/
+capacitor.config.ts
+capacitor.config.js
+capacitor.config.json
+
+# Ionic
+www/
+coverage/
+platforms/
+plugins/
+
+# Environment files
 *.local
+.env
+.env.*
 
 # Editor directories and files
-.vscode/*
+.vscode/
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# OS generated files
+Thumbs.db
