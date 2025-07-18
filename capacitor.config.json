@@ -1,0 +1,6 @@
+{
+  "appId": "com.ciclovital.app",
+  "appName": "CicloVital",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
