@@ -1,0 +1,61 @@
+:root {
+  /* Colores principales */
+  --ion-color-primary: #22c55e;                 /* Verde vibrante */
+  --ion-color-primary-shade: #16a34a;           /* Verde más oscuro (hover) */
+  --ion-color-primary-tint: #16833e;            /* Verde profundo (degradado) */
+
+  --ion-color-secondary: #272727;               /* Gris oscuro */
+  --ion-color-secondary-shade: #1e1e1e;         /* Gris más oscuro (header) */
+  --ion-color-tertiary: #ccc;                   /* Gris claro (texto animado) */
+
+  --ion-color-dark: #1e1e1e;                    /* Gris más oscuro */
+  --ion-color-light: #fff;                      /* Blanco sólido */
+  --ion-color-medium: rgba(255,255,255,0.85);   /* Blanco opaco */
+  --ion-color-step-850: rgba(255,255,255,0.65); /* Blanco tenue */
+
+  --ion-background-color: #272727;              /* Fondo principal */
+  --ion-text-color: rgba(255,255,255,0.85);     /* Texto general */
+  --ion-toolbar-background: #1e1e1e;            /* Fondo header/nav */
+  --ion-box-shadow: 0 2px 8px rgba(0,0,0,0.1);  /* Sombra negra clara */
+}
+
+.theme-dark {
+  --ion-color-primary: #22c55e;
+  --ion-color-primary-shade: #16a34a;
+  --ion-color-primary-tint: #16833e;
+
+  --ion-color-secondary: #272727;
+  --ion-color-secondary-shade: #1e1e1e;
+  --ion-color-tertiary: #ccc;
+
+  --ion-color-dark: #1e1e1e;
+  --ion-color-light: #fff;
+  --ion-color-medium: #ffffffd9;
+  --ion-color-step-850: #ffffffa6;
+
+  --ion-background-color: #272727;
+  --ion-text-color: #ffffffd9;
+  --ion-toolbar-background: #1e1e1e;
+  --ion-box-shadow: 0 2px 8px #0000001a;
+}
+
+.theme-light {
+  --ion-color-primary: #272727;
+  --ion-color-primary-shade: #1e1e1e;
+  --ion-color-primary-tint: #ccc;
+
+  --ion-color-secondary: #22c55e;
+  --ion-color-secondary-shade: #16a34a;
+  --ion-color-tertiary: #1e1e1e;
+
+  --ion-color-dark: #fff;
+  --ion-color-light: #272727;
+  --ion-color-medium: #272727;
+  --ion-color-step-850: #ccc;
+
+  --ion-background-color: #fff;
+  --ion-text-color: #272727;
+  --ion-toolbar-background: #f5f5f5;
+  --ion-box-shadow: 0 2px 8px #0000001a;
+}
+

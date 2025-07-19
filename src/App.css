@@ -1,5 +1,7 @@
-body, html{
-  background-color: #262626;
+body, html {
+  background-color: var(--ion-background-color);
+  color: var(--ion-text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 #root {

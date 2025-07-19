@@ -1,0 +1,21 @@
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.home-logo {
+  width: 120px;
+  margin-bottom: 2rem;
+}
+
+.home-title {
+  margin-bottom: 2rem;
+  color: var(--ion-text-color);
+}
+
+.home-btn {
+  margin-bottom: 1rem;
+}
