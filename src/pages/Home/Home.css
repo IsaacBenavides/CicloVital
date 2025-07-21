@@ -3,19 +3,172 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  margin-top: 2%;
+  padding: 5%;
+  --background: none;
+  background: linear-gradient(to top, var(--ion-color-primary-tint), var(--ion-color-secondary));
+  min-height: 100vh;
 }
 
 .home-logo {
-  width: 120px;
-  margin-bottom: 2rem;
+  position: relative;
+  top: -5%;
+  height: 30%;
+  width: 40%;
 }
 
-.home-title {
-  margin-bottom: 2rem;
-  color: var(--ion-text-color);
+.home-div-buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 30%;
 }
 
 .home-btn {
+  width: 7rem;
   margin-bottom: 1rem;
+}
+
+.hero {
+  text-align: center;
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-eslogan {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.try-btn,
+.info-btn {
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.try-btn {
+  background-color: #22c55e;
+  color: white;
+  border: none;
+}
+
+.try-btn:hover {
+  background-color: #16a34a;
+}
+
+.info-btn {
+  background-color: transparent;
+  border: 2px solid #22c55e;
+  color: #22c55e;
+}
+
+.info-btn:hover {
+  background-color: #22c55e;
+  color: white;
+}
+
+/* BENEFICIOS */
+.beneficios {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.scroll-down {
+  margin-top: 60px;
+  font-size: 22px;
+  color: #ccc;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* SOBRE NOSOTROS */
+.sobreNosotros {
+  text-align: center;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.info {
+  background-color: #272727;
+  padding: 60px 40px;
+  border-radius: 40px;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  color: #fff; /* Se mantiene negro porque está sobre fondo claro */
+}
+
+.info h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.info h3 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.info p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.info ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.info ul li {
+  margin-bottom: 10px;
+}
+
+.verde {
+  color: #22c55e;
+  font-weight: bold;
+}
+
+@media  screen and (max-width: 768px) {
+  .home-logo {
+    top: -20%;
+    height: 20%;
+    width: 60%;
+  }
+
 }

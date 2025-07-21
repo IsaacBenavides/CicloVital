@@ -11,8 +11,8 @@ function App() {
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/settings" component={Settings} />
+          <Route path="/home" component={Home} />
+          <Route path="/settings" component={Settings} />
           <Route path="/chat" component={Chat} />
           <Redirect exact from="/" to="/home" />
         </IonRouterOutlet>

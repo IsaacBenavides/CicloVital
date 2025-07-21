@@ -1,26 +1,15 @@
-import React, { useContext } from "react";
-import {
-  IonPage,
-  IonContent,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonButton,
-  IonButtons,
-} from "@ionic/react";
+import "./Settings.css"; 
+import { useContext } from "react";
+import {IonPage, IonContent, IonButton,IonButtons } from "@ionic/react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import "./Settings.css"; // Crea este archivo para tus estilos personalizados
+import Header from "../../components/Header";
 
 const Settings = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Configuración de Tema</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header />
       <IonContent className="settings-content">
         <IonButtons>
           <IonButton
