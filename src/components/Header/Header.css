@@ -1,0 +1,10 @@
+
+.header-button-text {
+  margin-left: 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .header-button-text {
+    display: none;
+  }
+}

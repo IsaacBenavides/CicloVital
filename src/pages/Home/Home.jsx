@@ -1,8 +1,9 @@
-import { IonPage, IonContent, IonButton } from '@ionic/react';
+import { IonPage, IonContent, IonButton, IonIcon } from '@ionic/react';
+import { clipboard, calendar, chatbox } from 'ionicons/icons';
 import { useHistory } from 'react-router-dom';
 import './Home.css';
-import Header from '../../components/Header';
-import logo from '../../assets/images/logo.png'; 
+import Header from '../../components/Header/Header';
+import LogoCirculos from '../../assets/svgs/LogoCirculos';
 
 function Home() {
   const history = useHistory();
@@ -12,25 +13,24 @@ function Home() {
       <Header />
       <IonContent className="home-content" fullscreen>
         
-        <section className="hero">
-          <img src={logo} alt="Logo CicloVital" className="home-logo" />
-
-          <div className="hero-buttons">
+        <section className="home">
+          <LogoCirculos className="home-logo" />
+          <div className="home-buttons">
             <IonButton
-            expand="block"
-            color="secondary"
-            onClick={() => history.push('/chat')}
-            className="try-btn"
-          >
-            ⬆ Comenzar
-          </IonButton>
-          <IonButton
-            expand="block"
-            color="secondary"
-            className="info-btn"
-          >
-            ⬇ Conócenos
-          </IonButton>
+              expand="block"
+              color="secondary"
+              onClick={() => history.push('/chat')}
+              className="try-btn"
+            >
+              ⬆ Comenzar&#8194;
+            </IonButton>
+            <IonButton
+              expand="block"
+              color="secondary"
+              className="info-btn"
+            >
+              ⬇ Conócenos
+            </IonButton>
           </div>
 
           <p className="sub-eslogan">Conecta contigo mismo. Mejora cada día.</p>
@@ -56,9 +56,9 @@ function Home() {
 
             <h3 className="verde">Funcionalidades</h3>
             <ul>
-              <li>Registro e inicio de sesión de usuario.</li>
-              <li>Registro diario de tu rutina.</li>
-              <li>Interacción con chatbot de IA mediante chats interactivos.</li>
+              <li><IonIcon icon={clipboard}></IonIcon>  Registro e inicio de sesión de usuario.</li>
+              <li><IonIcon icon={calendar}></IonIcon>  Registro diario de tu rutina.</li>
+              <li><IonIcon icon={chatbox}></IonIcon>  Interacción con chatbot de IA mediante chats interactivos.</li>
             </ul>
           </div>
         </section>

@@ -1,0 +1,42 @@
+.logo-circles {
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.logo-circle {
+  fill: var(--ion-color-primary-shade);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.logo-text {
+  fill: var(--ion-color-primary-shade);
+  font-family: 'Arial', sans-serif;
+  font-weight: 800;
+  font-size: 64px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo-circles {
+    display: block;
+    width: 340px;
+    height: auto;
+    margin: 20px auto;
+  }
+  
+}

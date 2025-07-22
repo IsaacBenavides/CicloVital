@@ -1,5 +1,5 @@
 import { IonPage, IonContent } from '@ionic/react';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 
 function Chat() {
   return (

@@ -10,29 +10,9 @@
   min-height: 100vh;
 }
 
-.home-logo {
-  position: relative;
-  top: -5%;
-  height: 30%;
-  width: 40%;
-}
-
-.home-div-buttons{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 30%;
-}
-
-.home-btn {
-  width: 7rem;
-  margin-bottom: 1rem;
-}
-
-.hero {
+.home {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 15px;
   height: calc(100vh - 80px);
   width: 100%;
   display: flex;
@@ -41,18 +21,18 @@
   align-items: center;
 }
 
-.sub-eslogan {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 30px;
-}
-
-.hero-buttons {
+.home-buttons {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: -50px;
   margin-bottom: 40px;
+}
+
+.sub-eslogan {
+  font-size: 20px;
+  color: var(--ion-color-step-850);
 }
 
 .try-btn,
@@ -66,24 +46,24 @@
 }
 
 .try-btn {
-  background-color: #22c55e;
-  color: white;
+  background-color: var(--ion-color-primary);
+  color: var(--ion-color-light);
   border: none;
 }
 
 .try-btn:hover {
-  background-color: #16a34a;
+  background-color: var(--ion-color-primary-shade);
 }
 
 .info-btn {
   background-color: transparent;
-  border: 2px solid #22c55e;
-  color: #22c55e;
+  border: 2px solid var(--ion-color-primary);
+  color: var(--ion-color-primary);
 }
 
 .info-btn:hover {
-  background-color: #22c55e;
-  color: white;
+  background-color: var(--ion-color-primary);
+  color: var(--ion-color-light);
 }
 
 /* BENEFICIOS */
@@ -93,15 +73,15 @@
   gap: 40px;
   margin-top: 40px;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--ion-color-medium);
   flex-wrap: wrap;
   text-align: center;
 }
 
 .scroll-down {
-  margin-top: 60px;
+  margin-top: 30px;
   font-size: 22px;
-  color: #ccc;
+  color: var(--ion-color-tertiary);
   animation: bounce 2s infinite;
 }
 
@@ -127,7 +107,7 @@
   max-width: 800px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: left;
-  color: #fff; /* Se mantiene negro porque está sobre fondo claro */
+  color: var(--ion-color-light); /* Se mantiene negro porque está sobre fondo claro */
 }
 
 .info h1 {
@@ -160,15 +140,12 @@
 }
 
 .verde {
-  color: #22c55e;
+  color: var(--ion-color-primary);
   font-weight: bold;
 }
 
-@media  screen and (max-width: 768px) {
-  .home-logo {
-    top: -20%;
-    height: 20%;
-    width: 60%;
+@media screen and (max-width: 768px) {
+  .home-buttons {
+    margin-top: 50px;
   }
-
 }

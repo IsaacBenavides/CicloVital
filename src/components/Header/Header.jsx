@@ -1,6 +1,7 @@
 import { IonHeader, IonTitle, IonToolbar, IonButton, IonButtons, IonIcon } from '@ionic/react'
-import { home, logInOutline, person } from 'ionicons/icons'
+import { home, person, settings } from 'ionicons/icons'
 import { useHistory } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => {
 
@@ -14,17 +15,17 @@ const Header = () => {
             <IonButtons slot="end">
               <IonButton onClick={() => history.push('/home')} >
                 <IonIcon  icon={home}/>
-                Home
+                <span className="header-button-text">Inicio</span>
               </IonButton>
 
               <IonButton onClick={() => history.push('/settings')} >
-                <IonIcon  icon={person}/>
-                Settings
+                <IonIcon  icon={settings}/>
+                <span className="header-button-text">Ajustes</span>
               </IonButton>
 
               <IonButton onClick={() => history.push('/chat')} >
-                <IonIcon icon={logInOutline} />
-                Login
+                <IonIcon icon={person} />
+                <span className="header-button-text">Perfil</span>
               </IonButton>
             </IonButtons>
         </IonToolbar>
