@@ -13,6 +13,12 @@
   animation-delay: 0.5s;
 }
 
+.logo-circle:hover {
+  fill: var(--ion-color-step-850);
+  transform: scale(1.1);
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
 .logo-text {
   fill: var(--ion-color-primary-shade);
   font-family: 'Arial', sans-serif;
@@ -22,6 +28,12 @@
   transform: translateY(10px);
   animation: fadeInUp 1.5s ease-out forwards;
   animation-delay: 0.5s;
+}
+
+.logo-text:hover {
+  fill: var(--ion-color-step-850);
+  transform: scale(1.1);
+  transition: transform 0.3s ease, fill 0.3s ease;
 }
 
 @keyframes fadeInUp {

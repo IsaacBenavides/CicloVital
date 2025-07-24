@@ -1,25 +1,35 @@
+import './Home.css';
 import { IonPage, IonContent, IonButton, IonIcon } from '@ionic/react';
 import { clipboard, calendar, chatbox } from 'ionicons/icons';
 import { useHistory } from 'react-router-dom';
-import './Home.css';
 import Header from '../../components/Header/Header';
 import LogoCirculos from '../../assets/svgs/LogoCirculos';
+import { useRef } from 'react';
+import Footer from '../../components/Footer/Footer';
 
 function Home() {
   const history = useHistory();
+
+  const sobrenosotrosRef = useRef(null);
+
+  const scrollToSobreNosotros = () => {
+    if (sobrenosotrosRef.current) {
+      sobrenosotrosRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <IonPage className="home-page">
       <Header />
       <IonContent className="home-content" fullscreen>
-        
+
         <section className="home">
-          <LogoCirculos className="home-logo" />
+          <LogoCirculos />
           <div className="home-buttons">
             <IonButton
               expand="block"
               color="secondary"
-              onClick={() => history.push('/chat')}
+              onClick={() => history.push('/signup')}
               className="try-btn"
             >
               ⬆ Comenzar&#8194;
@@ -28,6 +38,7 @@ function Home() {
               expand="block"
               color="secondary"
               className="info-btn"
+              onClick={scrollToSobreNosotros}
             >
               ⬇ Conócenos
             </IonButton>
@@ -38,7 +49,7 @@ function Home() {
           <div className="scroll-down">⬇ Desliza para saber más</div>
         </section>
 
-        <section className="sobreNosotros">
+        <section className="sobreNosotros" ref={sobrenosotrosRef}>
           <div className="info">
             <h1><span className="verde">Sobre Nosotros</span> - CicloVital</h1>
 
@@ -63,6 +74,7 @@ function Home() {
           </div>
         </section>
         
+        <Footer />
       </IonContent>
     </IonPage>
   );
