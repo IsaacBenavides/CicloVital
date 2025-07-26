@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
+import ThemeContext from "./ThemeContext";
 
-// CREA Y EXPORTA EL CONTEXTO
-export const ThemeContext = React.createContext();
 
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState("theme-dark");

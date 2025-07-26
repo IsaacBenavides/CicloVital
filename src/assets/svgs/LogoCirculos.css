@@ -1,5 +1,5 @@
 .logo-circles {
-  width: 80%;
+  width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -41,14 +41,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-@media screen and (max-width: 768px) {
-  .logo-circles {
-    display: block;
-    width: 340px;
-    height: auto;
-    margin: 20px auto;
-  }
-  
 }

@@ -70,6 +70,20 @@
     text-decoration: underline;
 }
 
+.error-message {
+    color: var(--ion-color-step-850);
+    font-size: 0.9rem;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 @media screen and (max-width: 768px) {
 
     .sing-up-form-container{

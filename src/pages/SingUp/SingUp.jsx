@@ -5,15 +5,14 @@ import Footer from '../../components/Footer/Footer';
 
 const SingUp = () => {
   return (
-    <IonPage >
+    <IonPage className='app-wrapper' >
         <Header />
-        <IonContent>
+        <IonContent className='main-content'>
             <SingUpForm />
             <Footer />
         </IonContent>
-        
     </IonPage>
   )
 }
 
-export default SingUp
+export default SingUp;

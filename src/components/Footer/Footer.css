@@ -14,9 +14,17 @@
 
 .footer-logo {
   max-width: 180px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 6px;
 }
 
@@ -41,17 +49,22 @@
 .footer-copy {
   font-size: 0.8rem;
   opacity: 0.6;
+  text-align: right;
 }
 
-/* ✅ Responsive mejorado */
+@media screen and (max-width: 1000px) {
+  .footer-container {
+    margin-top: 40%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 100px;
-    gap: 12px;
     padding: 20px 16px;
+    gap: 12px;
   }
 
   .footer-right {
@@ -61,11 +74,13 @@
 
   .footer-logo {
     max-width: 100px;
-    margin-left: -250px; /* Ajuste para centrar el logo */
+    height: auto;
+    margin: 0 auto;
   }
 
   .footer-copy {
     font-size: 0.75rem;
+    text-align: center;
   }
 
   .footer-icons {

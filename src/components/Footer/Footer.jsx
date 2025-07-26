@@ -10,22 +10,22 @@ const Footer = () => {
         <div className='footer-logo'>
             <LogoCirculos />
         </div>
-        <p className='footer-copy'>© 2025 CicloVital. Todos los derechos reservados.</p>
         <div className='footer-right'>
             <div className='footer-icons'>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                <IonIcon color='primary' icon={logoFacebook} />
-            </a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                <IonIcon color='primary' icon={logoTwitter} />
-            </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                <IonIcon color='primary' icon={logoInstagram} />
-            </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                <IonIcon color='primary' icon={logoLinkedin} />
-            </a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                    <IonIcon color='primary' icon={logoFacebook} />
+                </a>
+                <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                    <IonIcon color='primary' icon={logoTwitter} />
+                </a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                    <IonIcon color='primary' icon={logoInstagram} />
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <IonIcon color='primary' icon={logoLinkedin} />
+                </a>
             </div>
+            <p className='footer-copy'>© 2025 CicloVital. Todos los derechos reservados.</p>
         </div>
     </IonFooter>
   )

@@ -1,8 +1,8 @@
 import "./Settings.css"; 
 import { useContext } from "react";
 import {IonPage, IonContent, IonButton,IonButtons } from "@ionic/react";
-import { ThemeContext } from "../../contexts/ThemeContext";
 import Header from "../../components/Header/Header";
+import ThemeContext from "../../contexts/ThemeContext";
 
 const Settings = () => {
   const { theme, setTheme } = useContext(ThemeContext);

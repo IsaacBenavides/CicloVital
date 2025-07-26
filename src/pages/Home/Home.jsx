@@ -19,9 +19,9 @@ function Home() {
   };
 
   return (
-    <IonPage className="home-page">
+    <IonPage className="app-wrapper">
       <Header />
-      <IonContent className="home-content" fullscreen>
+      <IonContent className="main-content" >
 
         <section className="home">
           <LogoCirculos />
@@ -73,7 +73,6 @@ function Home() {
             </ul>
           </div>
         </section>
-        
         <Footer />
       </IonContent>
     </IonPage>
