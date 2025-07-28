@@ -1,51 +1,31 @@
 import { IonAlert, IonButton, IonInput, IonItem, IonLabel, IonRouterLink, IonTitle } from '@ionic/react'
-import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import { loginUser } from '../../services/authService';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import './LoginForm.css'
+import { useAuth } from '../../hooks/useAuth';
 
 const LoginForm = () => {
 
-    //Manejo de rutas
-      const history = useHistory();
-    
-      //Manejo de datos el alert
-      const [showAlert, setShowAlert] = useState(false);
-      const [alertmessage, setAlertMessage] = useState("");
-      const [alertHeader, setAlertHeader] = useState("");
-    
-      //Manejo del alert
-      const handleAlert = (show, message, header) => {
-        setShowAlert(show);
-        setAlertMessage(message);
-        setAlertHeader(header);
-      };
-    
-      //Control del form
-      const {
+    //Control del form
+    const {
         control,
         handleSubmit,
         reset,
         formState: { errors }
-      } = useForm();
-    
-      //Manejo del evento del envio de datos
-      const onSubmit = async (data) => {
-        try {
-          const createdUser = await loginUser(data);
-    
-          if (createdUser.ok) {
-            handleAlert(true, `Bienvenido ${data.nombre}`, "Usuario creado");
-            reset();
-            history.push("/chat");
-          } else {
-            handleAlert(true, createdUser.messageError, "Advertencia");
-          }
-        } catch (error) {
-          console.error(`Mensaje de error: ${error}`);
-        }
-      };//Fin del metodo onSubmit
+    } = useForm();
+
+    //Hook de autntificación
+    const {
+        login, 
+        showAlert,
+        alertMessage,
+        alertHeader,
+        handleAlert
+    } = useAuth();
+
+    //Manejo del evento del envio de datos
+    const onSubmit = (logindata) => {
+        login(logindata, reset)
+    };//Fin del metodo onSubmit
 
   return (
     <div className="login-form-container">
@@ -111,15 +91,15 @@ const LoginForm = () => {
           type="submit"
           className="login-form-button"
         >
-          Registrarse
+          Iniciar Sesión
         </IonButton>
 
         <IonAlert
           color="primary"
           isOpen={showAlert}
-          onDidDismiss={() => setShowAlert(false)}
+          onDidDismiss={() => handleAlert(false, '', '')}
           header={alertHeader}
-          message={alertmessage}
+          message={alertMessage}
           buttons={["Ok"]}
         />
 

@@ -24,16 +24,6 @@ export const loginUser = async ( userData ) => {
     }
 }
 
-export const getUserById = async ( userId ) => {
-    try{
-        const response = await axios.get(API_URL + userId);
-        return {ok: true, userData: response.data}
-    }catch(error){
-        const messageError = error.response?.data || errorService;
-        return { ok: false, messageError}
-    }
-}
-
 
 
 

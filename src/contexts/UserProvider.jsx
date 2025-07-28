@@ -3,11 +3,11 @@ import UserContext from './UserContext';
 
 const UserProvider = ({ children }) => {
 
-    const [user, setuser] = useState(null);
+    const [user, setUser] = useState(null);
 
   return (
-    <UserContext.Provider value={{ user, setuser }}>
-      {children} 
+    <UserContext.Provider value={{ user, setUser }}> 
+      {children}
     </UserContext.Provider>
   )
 }

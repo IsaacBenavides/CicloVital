@@ -8,27 +8,10 @@ import {
   IonRouterLink,
   IonAlert,
 } from "@ionic/react";
-import { createUser } from "../../services/authService";
 import { useForm, Controller } from "react-hook-form";
-import { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 const SingUpForm = () => {
-
-  //Manejo de rutas
-  const history = useHistory();
-
-  //Manejo de datos el alert
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertmessage, setAlertMessage] = useState("");
-  const [alertHeader, setAlertHeader] = useState("");
-
-  //Manejo del alert
-  const handleAlert = (show, message, header) => {
-    setShowAlert(show);
-    setAlertMessage(message);
-    setAlertHeader(header);
-  };
 
   //Control del form
   const {
@@ -38,28 +21,18 @@ const SingUpForm = () => {
     formState: { errors }
   } = useForm();
 
+  //Hook de autntificación
+  const {
+    registerUser,
+    showAlert,
+    alertMessage,
+    alertHeader,
+    handleAlert
+  } = useAuth();
+
   //Manejo del evento del envio de datos
   const onSubmit = async (data) => {
-    if (data.password !== data.confirmPassword) {
-      handleAlert(true, "Las contraseñas no coinciden.", "Advertencia");
-      return;
-    }
-
-    delete data.confirmPassword;
-
-    try {
-      const createdUser = await createUser(data);
-
-      if (createdUser.ok) {
-        handleAlert(true, `Bienvenido ${data.nombre}`, "Usuario creado");
-        reset();
-        history.push("/chat");
-      } else {
-        handleAlert(true, createdUser.messageError, "Advertencia");
-      }
-    } catch (error) {
-      console.error(`Mensaje de error: ${error}`);
-    }
+    registerUser(data, reset)
   };//Fin del metodo onSubmit
 
   return (
@@ -209,9 +182,9 @@ const SingUpForm = () => {
         <IonAlert
           color="primary"
           isOpen={showAlert}
-          onDidDismiss={() => setShowAlert(false)}
+          onDidDismiss={() => handleAlert(false, '', '')}
           header={alertHeader}
-          message={alertmessage}
+          message={alertMessage}
           buttons={["Ok"]}
         />
 
