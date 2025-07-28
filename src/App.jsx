@@ -13,7 +13,7 @@ function App() {
       <IonReactRouter>
         <IonRouterOutlet>
           <Route path="/home" component={Home} />
-          <Route path="/signup" component={SingUp} />
+          <Route path="/singup" component={SingUp} />
           <Route path="/login" component={Login} />
           <Route path="/settings" component={Settings} />
           <Redirect exact from="/" to="/home" />

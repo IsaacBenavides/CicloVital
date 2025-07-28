@@ -51,7 +51,7 @@ const SingUpForm = () => {
       const createdUser = await createUser(data);
 
       if (createdUser.ok) {
-        handleAlert(true, `Bienvenido ${data.nombre}`, "Éxito");
+        handleAlert(true, `Bienvenido ${data.nombre}`, "Usuario creado");
         reset();
         history.push("/chat");
       } else {

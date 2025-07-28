@@ -2,6 +2,7 @@ import { IonPage, IonContent } from '@ionic/react';
 import Header from '../../components/Header/Header';
 import SingUpForm from '../../components/SingUpForm/SingUpForm';
 import Footer from '../../components/Footer/Footer';
+import './SingUp.css'
 
 const SingUp = () => {
   return (
@@ -9,7 +10,9 @@ const SingUp = () => {
         <Header />
         <IonContent className='main-content'>
             <SingUpForm />
-            <Footer />
+            <div className='singup-footer'>
+              <Footer />
+            </div>
         </IonContent>
     </IonPage>
   )

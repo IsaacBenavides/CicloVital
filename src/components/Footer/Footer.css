@@ -52,12 +52,6 @@
   text-align: right;
 }
 
-@media screen and (max-width: 1000px) {
-  .footer-container {
-    margin-top: 40%;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .footer-container {
     flex-direction: column;
