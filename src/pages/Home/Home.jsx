@@ -29,7 +29,7 @@ function Home() {
             <IonButton
               expand="block"
               color="secondary"
-              onClick={() => history.push('/singup')}
+              onClick={() => history.push('/login')}
               className="try-btn"
             >
               ⬆ Comenzar&#8194;

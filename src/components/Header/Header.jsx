@@ -1,4 +1,4 @@
-import { IonHeader, IonTitle, IonToolbar, IonButton, IonButtons, IonIcon } from '@ionic/react'
+import { IonHeader, IonTitle, IonToolbar, IonButton, IonButtons, IonIcon, IonRouterLink } from '@ionic/react'
 import { home, person, settings } from 'ionicons/icons'
 import { useHistory } from 'react-router-dom';
 import './Header.css';
@@ -10,7 +10,9 @@ const Header = () => {
   return (
     <IonHeader >
         <IonToolbar>
-            <IonTitle style={{ marginLeft: '1rem', textAlign: 'start' }} slot="start">CicloVital</IonTitle>
+            <IonTitle className='header-title' slot="start">
+              <IonRouterLink color='light' routerLink='/home'>CicloVital</IonRouterLink>
+            </IonTitle>
 
             <IonButtons slot="end">
               <IonButton onClick={() => history.push('/home')} >

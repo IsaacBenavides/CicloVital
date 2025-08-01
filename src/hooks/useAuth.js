@@ -69,7 +69,7 @@ export const useAuth = () =>{
 
                 setUser(registedUserData.data);
             
-                handleAlert(true, `Bienvenido ${registedUserData.data.nombre}`, "Usuario creado");
+                handleAlert(true, `Bienvenido ${registedUserData.data.nombre}`, "Sesión iniciada");
                 resetFormCallback?.();
                 history.push("/chat");
             } else {
@@ -86,7 +86,7 @@ export const useAuth = () =>{
         history.push('/login');
     }
     
-    //Retorno de el hook
+    //Retorno del hook
     return {
         registerUser,
         login,

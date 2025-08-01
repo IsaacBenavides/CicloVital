@@ -10,11 +10,11 @@
 
   --ion-color-dark: #1e1e1e;                    /* Gris más oscuro */
   --ion-color-light: #fff;                      /* Blanco sólido */
-  --ion-color-medium: #ffffffd9;   /* Blanco opaco */
-  --ion-color-step-850: #ffffffa6; /* Blanco tenue */
+  --ion-color-medium: #ffffffd9;                /* Blanco opaco */
+  --ion-color-step-850: #ffffffa6;              /* Blanco tenue */
 
-  --ion-background-color: #272727;              /* Fondo principal */
-  --ion-text-color: #ffffffd9;     /* Texto general */
+  --ion-background-color: #3f3f3f;              /* Fondo principal */
+  --ion-text-color: #ffffffd9;                  /* Texto general */
   --ion-toolbar-background: #1e1e1e;            /* Fondo header/nav */
   --ion-box-shadow: 0 2px 8px rgba(0,0,0,0.1);  /* Sombra negra clara */
 }
