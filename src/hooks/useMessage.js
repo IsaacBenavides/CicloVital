@@ -1,18 +1,19 @@
-import {getMessagesByChatID} from '../services/messageService'
-export const useMessage = () =>{
+import { useCallback } from 'react';
+import { getMessagesByChatID, sendMessageToIA } from '../services/messageService';
 
-    const getChatMessages = async (chatId) =>{
+export const useMessage = () => {
+    const getChatMessages = useCallback(async (chatId) => {
         const messages = await getMessagesByChatID(chatId);
+        return messages.ok ? messages.data : messages.messageError;
+    }, []);
 
-        if(messages.ok){
-            return messages.data;
-        }else{
-            return messages.messageError;
-        }
+    const sendMessage = useCallback(async (chatId, mensajeUsuario) => {
+        const response = await sendMessageToIA(chatId, mensajeUsuario);
+        return response.ok ? response.data : response.messageError;
+    }, []);
+
+    return {
+        getChatMessages,
+        sendMessage
     }
-
-
-    return{
-        getChatMessages
-    }
-}
+};

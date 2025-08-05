@@ -1,16 +1,24 @@
-import axios from "axios";
+import axios from 'axios';
 
 const API_URL = 'http://localhost:8080/api/mensajes';
 
-const errorService = 'Error al conectar con el servidor.';
-
 export const getMessagesByChatID = async (chatId) => {
-    try{
-        const response = await axios.get(API_URL + `/porChat/${chatId}`);
-        return{ok: true, data: response.data}
-    }catch(error){
-        console.log("Error en getChatsById:", error);
-        const messageError = error.response?.data || errorService;
-        return { ok: false, messageError}
+    try {
+        const res = await axios.get(`${API_URL}/porChat/${chatId}`);
+        return { ok: true, data: res.data };
+    } catch (err) {
+        return { ok: false, messageError: err.message };
     }
-}
+};
+
+export const sendMessageToIA = async (chatId, mensaje) => {
+    try {
+        const res = await axios.post(`${API_URL}/ia`, {
+            chatId: chatId,
+            mensaje: mensaje
+        });
+        return { ok: true, data: res.data };
+    } catch (err) {
+        return { ok: false, messageError: err.message };
+    }
+};

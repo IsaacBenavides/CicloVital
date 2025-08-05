@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import {createUser, loginUser} from '../services/authService'
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 
 export const useAuth = () =>{
@@ -25,15 +25,15 @@ export const useAuth = () =>{
     };
 
     //Registro de usuario
-    const registerUser = async (data, resetFormCallback) =>{
+    const registerUser = useCallback( async(data, resetFormCallback) =>{
         if (data.password !== data.confirmPassword) {
             handleAlert(true, "Las contraseñas no coinciden.", "Advertencia");
             return;
-            }
-        
-            delete data.confirmPassword;
-        
-            try {
+        }
+    
+        delete data.confirmPassword;
+    
+        try {
             const createdUser = await createUser(data);
         
             if (createdUser.ok) {
@@ -55,18 +55,18 @@ export const useAuth = () =>{
             } else {
                 handleAlert(true, createdUser.messageError, "Advertencia");
             }
-            } catch (error) {
-            console.error(`Mensaje de error: ${error}`);
-            }
-    }//Fin del metodo resgisterUser
+        } catch (error) {
+        console.error(`Mensaje de error: ${error}`);
+        }
+        history.push("/chat");
+    }, [history, setUser]);//Fin del metodo resgisterUser
 
     //Inicio de sesión
-    const login = async (logindata, resetFormCallback) => {
+    const login = useCallback( async (logindata, resetFormCallback) => {
         try {
             const registedUserData = await loginUser(logindata);
 
             if (registedUserData.ok) {
-
                 setUser(registedUserData.data);
             
                 handleAlert(true, `Bienvenido ${registedUserData.data.nombre}`, "Sesión iniciada");
@@ -78,7 +78,7 @@ export const useAuth = () =>{
         } catch (error) {
             console.error(`Mensaje de error: ${error}`);
         }
-    }//Fin del metodo login
+    }, [history, setUser]);//Fin del metodo login
 
     //Cerrar seción
     const logout = () =>{

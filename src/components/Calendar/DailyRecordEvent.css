@@ -1,0 +1,66 @@
+.ion-registro-card {
+  border-radius: 6px;
+  padding: 4px;
+  box-shadow: none;
+  margin: 0;
+}
+
+.ion-registro-card:hover{
+  background-color: var(--ion-color-primary);
+  color: var(--ion-color-secundary);
+}
+
+.ion-registro-header {
+  padding: 0;
+  padding-bottom: 4px;
+}
+
+.ion-registro-title {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  white-space: normal; 
+}
+
+.ion-registro-content {
+  padding-top: 0;
+  font-size: 0.7rem;
+}
+
+.ion-registro-flex-wrap {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 2px 4px; 
+}
+
+.ion-registro-comentario {
+  display: flex; 
+  flex-wrap: wrap;
+  font-style: italic;
+  font-size: 0.65rem;
+  color: var(--ion-color-medium);
+  margin-top: 2px;
+}
+
+@media screen and (max-width: 768px) {
+
+
+    .ion-registro-title {
+        display: flex; 
+        flex-wrap: wrap;
+        font-size: 0.6rem;
+    }
+
+    .ion-registro-content {
+        display: none;
+    }
+
+    .ion-registro-flex-wrap {
+                display: none;
+
+    }
+
+    .ion-registro-comentario {
+    display: none;
+    }
+}

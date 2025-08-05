@@ -1,0 +1,16 @@
+import axios from "axios";
+
+const API_URL = 'http://localhost:8080/api/registros';
+
+const errorService = 'Error al conectar con el servidor.';
+
+export const getDailyRecordsByUserID = async (userId) =>{
+    try{
+        const response = await axios.get(API_URL + `/usuario/${userId}`);
+        return{ok: true, data: response.data}
+    }catch(error){
+        console.log("Error en getChatsById:", error);
+        const messageError = error.response?.data || errorService;
+        return { ok: false, messageError}
+    }
+}

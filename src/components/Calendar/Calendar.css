@@ -1,0 +1,39 @@
+.calendar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* fondo oscuro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.calendar-container {
+  background: var(--ion-background-color);
+  border-radius: 12px;
+  padding: 10px;
+  width: 90vw;
+  height: 90vh;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-container .fc {
+  flex: 1;
+  min-height: 0;
+}
+
+.calendar-close-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}

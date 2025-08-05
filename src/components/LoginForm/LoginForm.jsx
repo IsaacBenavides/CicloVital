@@ -24,13 +24,13 @@ const LoginForm = () => {
 
     //Manejo del evento del envio de datos
     const onSubmit = (logindata) => {
-        login(logindata, reset)
+        login(logindata, reset);
     };//Fin del metodo onSubmit
 
   return (
     <div className="login-form-container">
       <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-        <IonTitle className="login-form-title">Inicio de sesión</IonTitle>
+        <IonTitle className="login-form-title"> isaac@gmail.com</IonTitle>
 
         {/* Correo */}
         <Controller

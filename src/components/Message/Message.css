@@ -1,19 +1,29 @@
 .message-container {
-  margin: 8px;
   display: flex;
-  flex-direction: column;
+  margin: 8px;
+}
+
+.message-container.user {
+  justify-content: flex-end;
+}
+
+.message-container.ia {
+  justify-content: flex-start;
+}
+
+/* Burbujas de mensaje */
+.message-bubble {
   max-width: 75%;
+  padding: 0;
 }
 
 .user-message {
-  align-self: flex-end;
   background-color: var(--ion-color-primary);
   color: white;
   border-radius: 12px 12px 0 12px;
 }
 
 .ia-message {
-  align-self: flex-start;
   background-color: #f1f1f1;
   color: black;
   border-radius: 12px 12px 12px 0;
@@ -22,7 +32,8 @@
 .message-content {
   padding: 12px;
   font-size: 1rem;
-  white-space: pre-wrap; /* para que los saltos de línea funcionen */
+  white-space: pre-wrap;
+  text-align: start;
 }
 
 .message-date {

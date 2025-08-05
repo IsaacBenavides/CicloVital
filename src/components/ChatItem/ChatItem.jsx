@@ -10,12 +10,12 @@ import ChatContext from '../../contexts/ChatContext';
 
 const ChatItem = ({ title, chatId, onDelete }) => {
 
-  const {setCurrentChat} = useContext(ChatContext);
+  const {currentChat, setCurrentChat} = useContext(ChatContext);
 
   return (
     <IonItemSliding>
       {/* Chat visible */}
-      <IonItem onClick={setCurrentChat(chatId)}>
+      <IonItem color={currentChat === chatId ? 'primary': ''} onClick={() => setCurrentChat(chatId)}>
         <IonLabel>{title}</IonLabel>
       </IonItem>
 

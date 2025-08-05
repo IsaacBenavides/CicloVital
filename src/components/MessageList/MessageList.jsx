@@ -11,10 +11,16 @@ const MessageList = () => {
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
 
+
   useEffect(() => {
+    let isMounted = true;
+
     const fetchMessages = async () => {
-      if (currentChat) {
-        const data = await getChatMessages(currentChat);
+      if (!currentChat) return;
+
+      const data = await getChatMessages(currentChat);
+
+      if (isMounted) {
         if (Array.isArray(data)) {
           setMessages(data);
         } else {
@@ -24,10 +30,15 @@ const MessageList = () => {
     };
 
     fetchMessages();
+
+    return () => {
+      isMounted = false;
+    };
   }, [currentChat, getChatMessages]);
 
+
   return (
-    <IonContent className="message-list-container">
+    <IonContent color='secondary' className="message-list-container">
       {messages.map((msg) => (
         <Message key={msg.id} mensaje={msg} />
       ))}
