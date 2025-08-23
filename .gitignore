@@ -1,4 +1,6 @@
+# ─────────────────────────────
 # Logs
+# ─────────────────────────────
 logs
 *.log
 npm-debug.log*
@@ -7,14 +9,26 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# ─────────────────────────────
+# Environment files
+# ─────────────────────────────
+.env*
+*.local
+
+# ─────────────────────────────
 # Dependency directories
+# ─────────────────────────────
 node_modules/
 
+# ─────────────────────────────
 # Build output
+# ─────────────────────────────
 dist/
 dist-ssr/
 
+# ─────────────────────────────
 # Capacitor
+# ─────────────────────────────
 android/
 ios/
 web/
@@ -22,18 +36,17 @@ capacitor.config.ts
 capacitor.config.js
 capacitor.config.json
 
+# ─────────────────────────────
 # Ionic
+# ─────────────────────────────
 www/
 coverage/
 platforms/
 plugins/
 
-# Environment files
-*.local
-.env
-.env.*
-
+# ─────────────────────────────
 # Editor directories and files
+# ─────────────────────────────
 .vscode/
 !.vscode/extensions.json
 .idea/
@@ -44,5 +57,7 @@ plugins/
 *.sln
 *.sw?
 
+# ─────────────────────────────
 # OS generated files
+# ─────────────────────────────
 Thumbs.db

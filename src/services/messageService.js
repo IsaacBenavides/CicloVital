@@ -11,14 +11,16 @@ export const getMessagesByChatID = async (chatId) => {
     }
 };
 
-export const sendMessageToIA = async (chatId, mensaje) => {
+export const sendMessageToIA = async (chatId, mensaje, userId) => {
     try {
         const res = await axios.post(`${API_URL}/ia`, {
             chatId: chatId,
-            mensaje: mensaje
+            mensaje: mensaje,
+            userId: userId
         });
         return { ok: true, data: res.data };
     } catch (err) {
+        console.log("Error en sendMessageToIA:", err);
         return { ok: false, messageError: err.message };
     }
 };

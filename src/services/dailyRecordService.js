@@ -14,3 +14,14 @@ export const getDailyRecordsByUserID = async (userId) =>{
         return { ok: false, messageError}
     }
 }
+
+export const createDailyRecord = async (recordData) =>{
+    try{
+        const response = await axios.post(API_URL, recordData);
+        return{ok: true, data: response.data}
+    }catch(error){
+        console.log("Error en createDailyRecord:", error);
+        const messageError = error.response?.data || errorService;
+        return { ok: false, messageError}
+    }
+}

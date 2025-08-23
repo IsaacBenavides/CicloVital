@@ -1,0 +1,40 @@
+/* ====== AI Avatar (mapa a variables de Ionic) ====== */
+
+/* Tamaño por defecto */
+.ai-avatar { width: 48px; height: 48px; }
+
+/* --- Defaults (pensado para theme-dark como base) --- */
+.ai-avatar{
+  /* tokens internos del avatar (puedes sobreescribirlos por componente si quieres) */
+  --ai-accent: var(--ion-color-primary);               /* verde en dark */
+  --ai-bg: var(--ion-color-secondary-shade);           /* círculo de fondo */
+  --ai-ring: var(--ion-color-step-850);                /* anillo sutil */
+  --ai-face: var(--ion-color-secondary);               /* carita/surface oscura */
+  --ai-eye: var(--ion-color-primary);                  /* ojos */
+  --ai-mouth: var(--ion-color-primary);                /* boca */
+}
+
+/* Aplicación de tokens a las partes del SVG */
+.ai-avatar .ai-bg          { fill:   var(--ai-bg); }
+.ai-avatar .ai-ring        { stroke: var(--ai-ring); }
+.ai-avatar .ai-face        { fill:   var(--ai-face); }
+.ai-avatar .ai-eye         { fill:   var(--ai-eye); }
+.ai-avatar .ai-mouth       { stroke: var(--ai-mouth); }
+.ai-avatar .ai-antenna     { stroke: var(--ai-accent); }
+.ai-avatar .ai-antenna-tip { fill:   var(--ai-accent); }
+.ai-avatar .ai-spark       { fill:   var(--ai-accent); }
+
+/* --- Overrides para tema claro --- */
+.theme-light .ai-avatar{
+  /* En tu tema claro el verde está en --ion-color-secondary */
+  --ai-accent: var(--ion-color-secondary);            /* verde en light */
+  --ai-bg: var(--ion-toolbar-background);             /* fondo claro del círculo */
+  --ai-ring: var(--ion-color-step-850, #ccc);         /* contorno sutil */
+  --ai-face: var(--ion-color-light);                  /* carita blanca */
+  --ai-eye: var(--ion-color-secondary);               /* ojos verdes */
+  --ai-mouth: var(--ion-color-secondary);             /* boca verde */
+}
+
+/* Opcional: variantes de tamaño */
+.ai-avatar--sm { width: 32px; height: 32px; }
+.ai-avatar--lg { width: 64px; height: 64px; }

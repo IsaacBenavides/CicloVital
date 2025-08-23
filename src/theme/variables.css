@@ -59,3 +59,71 @@
   --ion-box-shadow: 0 2px 8px #0000001a;
 }
 
+/* =========================
+   THEME OCEAN (dark – cian)
+   ========================= */
+.theme-ocean {
+  --ion-color-primary: #06b6d4;            /* Cyan 500 */
+  --ion-color-primary-shade: #0e7490;      /* Cyan 700 */
+  --ion-color-primary-tint: #0891b2;       /* Cyan 600 */
+
+  --ion-color-secondary: #0f172a;          /* Slate 900 (superficie) */
+  --ion-color-secondary-shade: #0b1220;    /* Más oscuro */
+  --ion-color-tertiary: #7dd3fc;           /* Sky 300 (detalles) */
+
+  --ion-color-dark: #0b1220;
+  --ion-color-light: #e6f6ff;
+  --ion-color-medium: #e6f6ffd9;           /* Texto/íconos sutiles */
+  --ion-color-step-850: #a0d8ff99;         /* Divisores/contornos suaves */
+
+  --ion-background-color: #0b1220;         /* Fondo principal */
+  --ion-text-color: #e6f6ff;               /* Texto general */
+  --ion-toolbar-background: #0f172a;       /* Header/nav */
+  --ion-box-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+
+/* ==========================
+   THEME SUNSET (light – cálido)
+   ========================== */
+.theme-sunset {
+  --ion-color-primary: #f97316;            /* Orange 500 (acento) */
+  --ion-color-primary-shade: #c2410c;      /* Orange 700 */
+  --ion-color-primary-tint: #fb923c;       /* Orange 400 */
+
+  --ion-color-secondary: #374151;          /* Gray 700 (superficie) */
+  --ion-color-secondary-shade: #1f2937;    /* Gray 800 */
+  --ion-color-tertiary: #7c2d12;           /* Marrón rojizo para detalles */
+
+  --ion-color-dark: #1f2937;
+  --ion-color-light: #fffaf0;              /* Blanco cálido */
+  --ion-color-medium: #374151;             /* Texto medio */
+  --ion-color-step-850: #9ca3af;           /* Divisores */
+
+  --ion-background-color: #fff7ed;         /* Fondo crema */
+  --ion-text-color: #1f2937;               /* Texto oscuro */
+  --ion-toolbar-background: #ffedd5;       /* Header suave */
+  --ion-box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+/* ==========================
+   THEME BERRY (dark – fucsia)
+   ========================== */
+.theme-berry {
+  --ion-color-primary: #d946ef;            /* Fuchsia 500 */
+  --ion-color-primary-shade: #a21caf;      /* Fuchsia 700 */
+  --ion-color-primary-tint: #e879f9;       /* Fuchsia 400 */
+
+  --ion-color-secondary: #1a1024;          /* Berenjena profunda */
+  --ion-color-secondary-shade: #140c1a;    /* Más oscuro */
+  --ion-color-tertiary: #f5d0fe;           /* Fucsia pálido */
+
+  --ion-color-dark: #140c1a;
+  --ion-color-light: #ffffff;
+  --ion-color-medium: #ffffffd9;
+  --ion-color-step-850: #ffffffa6;
+
+  --ion-background-color: #0e0a14;         /* Fondo principal oscuro */
+  --ion-text-color: #f8f5ff;               /* Texto claro */
+  --ion-toolbar-background: #1a1024;       /* Header/nav */
+  --ion-box-shadow: 0 2px 8px rgba(0,0,0,.42);
+}

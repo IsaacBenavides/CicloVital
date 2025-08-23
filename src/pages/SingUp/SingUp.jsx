@@ -10,9 +10,6 @@ const SingUp = () => {
         <Header />
         <IonContent className='main-content'>
             <SingUpForm />
-            <div className='singup-footer'>
-              <Footer />
-            </div>
         </IonContent>
     </IonPage>
   )

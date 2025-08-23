@@ -13,7 +13,7 @@ import {
   IonButton,
   IonLabel,
   IonIcon,
-  IonTextarea,
+  IonAlert,
 } from "@ionic/react";
 import React, { useContext, useRef, useState } from "react";
 import UserContext from "../../contexts/UserContext";
@@ -23,25 +23,31 @@ import './Chat.css';
 import ChatContext from "../../contexts/ChatContext";
 import MessageList from "../../components/MessageList/MessageList";
 import Calendar from "../../components/Calendar/Calendar";
+import MessageInput from "../../components/MessageInput/MessageInput";
 import { useMessage } from "../../hooks/useMessage";
+import ModalDailyRecord from "../../components/ModalDailyRecord/ModalDailyRecord";
+import { useAuth } from "../../hooks/useAuth";
 
 const Chat = () => {
   const { user } = useContext(UserContext);
   const { currentChat, setCurrentChat } = useContext(ChatContext);
   const { sendMessage } = useMessage();
+  const { handleAlert, showAlert, alertHeader, alertMessage } = useAuth();
 
   const [showCalendar, setShowCalendar] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [isResponding, setIsResponding] = useState(false);
   const inputRef = useRef(null);
 
-  const handleSend = async () => {
+  const handleSend = async (chatIdParam) => {
     const mensaje = inputRef.current?.value;
+    const chatIdToUse = chatIdParam ?? currentChat;
 
-    if (!mensaje || !mensaje.trim() || currentChat === null) return;
+    if (!mensaje || !mensaje.trim() || chatIdToUse === null) return;
 
     try {
       setIsResponding(true);
-      await sendMessage(currentChat, mensaje.trim());
+      await sendMessage(chatIdToUse, mensaje.trim(), user.id);
       inputRef.current.value = '';
     } catch (error) {
       console.error("Error enviando mensaje:", error);
@@ -58,6 +64,15 @@ const Chat = () => {
         <Calendar user={user} onClose={() => setShowCalendar(false)} />
       )}
 
+      {showModal && (
+        <ModalDailyRecord
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+          user={user}
+          handleAlert={handleAlert}
+        />
+      )}
+
       <IonSplitPane contentId="main-content">
         {/* Menú lateral */}
         <IonMenu size="small" contentId="main-content" type="reveal">
@@ -70,7 +85,7 @@ const Chat = () => {
             <br />
             <IonLabel>Registro Diario</IonLabel>
             <IonItem>
-              <IonButton expand="block" color="primary">
+              <IonButton expand="block" color="primary" onClick={() => setShowModal(true)}>
                 Nuevo Registro
               </IonButton>
               <IonButton
@@ -129,7 +144,6 @@ const Chat = () => {
             )}
 
             <div className="page-chat-messages-container">
-              <div className="page-chat-messages-container">
                 {currentChat !== null && (
                   <>
                     <MessageList />
@@ -140,32 +154,24 @@ const Chat = () => {
                     )}
                   </>
                 )}
-              </div>
             </div>
-
-            <div className="page-chat-input-container">
-              <div className="input-field-wrapper">
-                <IonTextarea
-                  className="page-chat-input-ionTextArea"
-                  color="primary"
-                  placeholder="Pregunta lo que quieras"
-                  rows={1}
-                  autoGrow={true}
-                  ref={inputRef}
-                ></IonTextarea>
-              </div>
-              <IonButton
-                className="page-chat-input-ionButton"
-                color="primary"
-                onClick={handleSend}
-                disabled={isResponding}
-              >
-                {isResponding ? "..." : "Enviar"}
-              </IonButton>
-            </div>
+            <MessageInput
+              inputRef={inputRef}
+              handleSend={handleSend}
+              isResponding={isResponding}
+            />
           </IonContent>
         </IonPage>
       </IonSplitPane>
+      
+      <IonAlert
+        color="primary"
+        isOpen={showAlert}
+        onDidDismiss={() => handleAlert(false, "", "")}
+        header={alertHeader}
+        message={alertMessage}
+        buttons={["Ok"]}
+      />
     </IonApp>
   );
 };

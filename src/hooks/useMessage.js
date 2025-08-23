@@ -7,8 +7,8 @@ export const useMessage = () => {
         return messages.ok ? messages.data : messages.messageError;
     }, []);
 
-    const sendMessage = useCallback(async (chatId, mensajeUsuario) => {
-        const response = await sendMessageToIA(chatId, mensajeUsuario);
+    const sendMessage = useCallback(async (chatId, mensajeUsuario, userId) => {
+        const response = await sendMessageToIA(chatId, mensajeUsuario, userId);
         return response.ok ? response.data : response.messageError;
     }, []);
 

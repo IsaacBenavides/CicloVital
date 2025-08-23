@@ -28,6 +28,30 @@ const Settings = () => {
           >
             Claro
           </IonButton>
+          <IonButton
+            color={theme === "theme-ocean" ? "primary" : "medium"}
+            onClick={() => setTheme("theme-ocean")}
+            disabled={theme === "theme-ocean"}
+            className="settings-btn"
+          >
+            Oceánico
+          </IonButton>
+          <IonButton
+            color={theme === "theme-sunset" ? "primary" : "medium"}
+            onClick={() => setTheme("theme-sunset")}
+            disabled={theme === "theme-sunset"}
+            className="settings-btn"
+          >
+            Sunset
+          </IonButton>
+          <IonButton
+            color={theme === "theme-berry" ? "primary" : "medium"}
+            onClick={() => setTheme("theme-berry")}
+            disabled={theme === "theme-berry"}
+            className="settings-btn"
+          >
+            Berry
+          </IonButton>
         </IonButtons>
       </IonContent>
     </IonPage>
