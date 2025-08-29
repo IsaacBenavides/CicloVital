@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL_LOCAL = 'http://localhost:8080/api/registros';
 
-const API_URL = `${import.meta.env.VITE_URL_API}api/registros`;
+const API_URL = `${import.meta.env.VITE_URL_API}/api/registros`;
 
 const errorService = 'Error al conectar con el servidor.';
 
