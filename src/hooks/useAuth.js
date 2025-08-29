@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import {createUser, loginUser} from '../services/authService'
 import { useCallback, useContext, useState } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 import UserContext from "../contexts/UserContext";
 
 export const useAuth = () =>{
@@ -10,6 +11,9 @@ export const useAuth = () =>{
 
     //Contexto de usuario
     const {setUser} = useContext(UserContext);
+
+    //Guardado de datos en localStorage
+    const [, setLocalStorageUser ] = useLocalStorage('user', null);
 
     //Manejo de datos el alert
     const [showAlert, setShowAlert] = useState(false);
@@ -41,15 +45,17 @@ export const useAuth = () =>{
                 const loginUserData = {correo: data.correo, password : data.password}
         
                 //Loguea al usuario
-                const registeduserData = await loginUser(loginUserData);
+                const registedUserData = await loginUser(loginUserData);
         
-                if(registeduserData.ok){
-                setUser(registeduserData.data);
-                handleAlert(true, `Bienvenido ${registeduserData.data.nombre}`, "Usuario creado");
+                if(registedUserData.ok){
+
+                setLocalStorageUser(registedUserData.data);
+                setUser(registedUserData.data);
+                handleAlert(true, `Bienvenido ${registedUserData.data.nombre}`, "Usuario creado");
                 resetFormCallback?.();
                 history.push("/chat");
                 }else{
-                handleAlert(true, registeduserData.messageError, "Advertencia");
+                handleAlert(true, registedUserData.messageError, "Advertencia");
                 }
                 
             } else {
@@ -59,7 +65,7 @@ export const useAuth = () =>{
         console.error(`Mensaje de error: ${error}`);
         }
         history.push("/chat");
-    }, [history, setUser]);//Fin del metodo resgisterUser
+    }, [history, setUser, setLocalStorageUser]);//Fin del metodo resgisterUser
 
     //Inicio de sesión
     const login = useCallback( async (logindata, resetFormCallback) => {
@@ -68,7 +74,7 @@ export const useAuth = () =>{
 
             if (registedUserData.ok) {
                 setUser(registedUserData.data);
-            
+                setLocalStorageUser(registedUserData.data);
                 handleAlert(true, `Bienvenido ${registedUserData.data.nombre}`, "Sesión iniciada");
                 resetFormCallback?.();
                 history.push("/chat");
@@ -78,11 +84,12 @@ export const useAuth = () =>{
         } catch (error) {
             console.error(`Mensaje de error: ${error}`);
         }
-    }, [history, setUser]);//Fin del metodo login
+    }, [history, setUser, setLocalStorageUser]);//Fin del metodo login
 
     //Cerrar seción
     const logout = () =>{
         setUser(null);
+        setLocalStorageUser(null);
         history.push('/login');
     }
     

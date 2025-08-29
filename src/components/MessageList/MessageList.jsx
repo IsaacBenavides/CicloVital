@@ -21,7 +21,7 @@ const MessageList = () => {
   }
 
   // Normaliza para soportar tanto {chatId} como {chat:{id}}
-  const normalizeIncoming = (m) => {
+  const normalizeIncoming = React.useCallback((m) => {
     const cid = m.chatId ?? m.chat?.id ?? chatId ?? null
     return {
       id: m.id ?? `${cid}-${m.timestamp ?? Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -31,7 +31,7 @@ const MessageList = () => {
       timestamp: m.timestamp ?? m.fechaHora ?? new Date().toISOString(),
       ...m,
     }
-  }
+  }, [chatId])
 
   const makeKey = (nm) =>
     `${nm.chatId}|${nm.esUsuario ? 'U' : 'A'}|${nm.contenido}|${new Date(nm.timestamp).getTime()}`
@@ -62,7 +62,7 @@ const MessageList = () => {
     }
     run()
     return () => { alive = false }
-  }, [chatId, getChatMessages])
+  }, [chatId, getChatMessages, normalizeIncoming])
 
   // Polling incremental cada 2s (pausado si la pestaña no está visible)
   useEffect(() => {
@@ -119,7 +119,7 @@ const MessageList = () => {
       clearInterval(intervalId)
       document.removeEventListener('visibilitychange', onVisible)
     }
-  }, [chatId, getChatMessages])
+  }, [chatId, getChatMessages, normalizeIncoming])
 
   // Auto‑scroll cuando cambia el length
   useEffect(() => { scrollToBottom() }, [messages.length])

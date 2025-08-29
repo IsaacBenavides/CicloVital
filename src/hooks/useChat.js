@@ -1,7 +1,10 @@
 import { useCallback } from "react";
 import { getChatsById, creatChat, deletechat } from "../services/chatService";
+import { useLocalStorage } from "./useLocalStorage";
 
 export const useChat = () => {
+
+  const [, setChat] = useLocalStorage("chat", null);
 
   const chatsList = useCallback(async (user) => {
     const chats = await getChatsById(user.id);
@@ -16,11 +19,12 @@ export const useChat = () => {
   const newChat = useCallback(async (chat) => {
     const newChatResult = await creatChat(chat);
     if (newChatResult.ok) {
+      setChat(newChatResult.data);
       return newChatResult.data;
     } else {
       return newChatResult.messageError;
     }
-  }, []);
+  }, [setChat]);
 
   const deleteChat = useCallback(async (id) => {
     const chatDeleted = await deletechat(id);

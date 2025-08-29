@@ -3,7 +3,7 @@ import ChatItem from '../ChatItem/ChatItem'
 import { useChat } from '../../hooks/useChat'
 import UserContext from '../../contexts/UserContext'
 
-const POLL_INTERVAL_MS = 2000
+const POLL_INTERVAL_MS = 5000;
 
 const shallowEqualChats = (a, b) => {
   if (a === b) return true

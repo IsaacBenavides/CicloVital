@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/mensajes';
+const API_URL_LOCAL = 'http://localhost:8080/api/mensajes';
+
+const API_URL = `${import.meta.env.VITE_URL_API}api/mensajes`;
 
 export const getMessagesByChatID = async (chatId) => {
     try {

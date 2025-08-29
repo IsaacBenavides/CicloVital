@@ -1,6 +1,6 @@
 import "./Settings.css"; 
 import { useContext } from "react";
-import {IonPage, IonContent, IonButton,IonButtons } from "@ionic/react";
+import {IonPage, IonContent, IonButton,IonButtons, IonTitle, IonLabel } from "@ionic/react";
 import Header from "../../components/Header/Header";
 import ThemeContext from "../../contexts/ThemeContext";
 
@@ -10,7 +10,10 @@ const Settings = () => {
   return (
     <IonPage>
       <Header />
+      
       <IonContent className="settings-content">
+        <br />
+        <IonLabel fill='outline'>Ajustes de Tema</IonLabel>
         <IonButtons>
           <IonButton
             color={theme === "theme-dark" ? "primary" : "medium"}

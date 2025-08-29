@@ -1,7 +1,8 @@
 import { IonHeader, IonTitle, IonToolbar, IonButton, IonButtons, IonIcon, IonRouterLink } from '@ionic/react'
-import { home, person, settings } from 'ionicons/icons'
+import { home, settings } from 'ionicons/icons'
 import { useHistory } from 'react-router-dom';
 import './Header.css';
+
 
 const Header = () => {
 
@@ -13,23 +14,20 @@ const Header = () => {
             <IonTitle className='header-title' slot="start">
               <IonRouterLink color='light' routerLink='/home'>CicloVital</IonRouterLink>
             </IonTitle>
+ 
+              <IonButtons slot="end">
+                <IonButton onClick={() => history.push('/home')} >
+                  <IonIcon  icon={home}/>
+                  <span className="header-button-text">Inicio</span>
+                </IonButton>
 
-            <IonButtons slot="end">
-              <IonButton onClick={() => history.push('/home')} >
-                <IonIcon  icon={home}/>
-                <span className="header-button-text">Inicio</span>
-              </IonButton>
+                <IonButton onClick={() => history.push('/settings')} >
+                  <IonIcon  icon={settings}/>
+                  <span className="header-button-text">Ajustes</span>
+                </IonButton>
 
-              <IonButton onClick={() => history.push('/settings')} >
-                <IonIcon  icon={settings}/>
-                <span className="header-button-text">Ajustes</span>
-              </IonButton>
+              </IonButtons>
 
-              <IonButton onClick={() => history.push('/chat')} >
-                <IonIcon icon={person} />
-                <span className="header-button-text">Perfil</span>
-              </IonButton>
-            </IonButtons>
         </IonToolbar>
     </IonHeader>
 

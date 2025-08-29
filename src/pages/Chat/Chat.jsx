@@ -18,7 +18,7 @@ import {
 import React, { useContext, useRef, useState } from "react";
 import UserContext from "../../contexts/UserContext";
 import ChatsList from "../../components/ChatsList/ChatsList";
-import { person, settings } from 'ionicons/icons';
+import { settings } from 'ionicons/icons';
 import './Chat.css';
 import ChatContext from "../../contexts/ChatContext";
 import MessageList from "../../components/MessageList/MessageList";
@@ -27,12 +27,15 @@ import MessageInput from "../../components/MessageInput/MessageInput";
 import { useMessage } from "../../hooks/useMessage";
 import ModalDailyRecord from "../../components/ModalDailyRecord/ModalDailyRecord";
 import { useAuth } from "../../hooks/useAuth";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Chat = () => {
+  const history = useHistory();
   const { user } = useContext(UserContext);
   const { currentChat, setCurrentChat } = useContext(ChatContext);
   const { sendMessage } = useMessage();
   const { handleAlert, showAlert, alertHeader, alertMessage } = useAuth();
+
 
   const [showCalendar, setShowCalendar] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -58,7 +61,7 @@ const Chat = () => {
 
 
   return (
-    <IonApp>
+    <IonApp >
       {/* Calendario */}
       {showCalendar && (
         <Calendar user={user} onClose={() => setShowCalendar(false)} />
@@ -112,11 +115,8 @@ const Chat = () => {
             <ChatsList user={user} />
           </IonContent>
           <IonButtons>
-            <IonButton>
+            <IonButton onClick={() => history.push("/settings")}>
               <IonIcon icon={settings} />
-            </IonButton>
-            <IonButton>
-              <IonIcon icon={person} />
             </IonButton>
           </IonButtons>
         </IonMenu>

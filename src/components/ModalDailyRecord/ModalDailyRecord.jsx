@@ -10,7 +10,7 @@ import { close } from 'ionicons/icons'
 import './ModalDailyRecord.css'
 import { useDailyRecord } from '../../hooks/useDailyRecord';
 
-const today = () => new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+const today = () => new Date().toLocaleDateString('en-CA');
 
 const ModalDailyRecord = ({ isOpen, onClose, user, handleAlert }) => {
   const { createDailyRecord } = useDailyRecord();

@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:8080/api/chats';
+const API_URL_LOCAL = 'http://localhost:8080/api/chats';
+
+const API_URL = `${import.meta.env.VITE_URL_API}api/chats`;
+
 
 const errorService = 'Error al conectar con el servidor.';
 
